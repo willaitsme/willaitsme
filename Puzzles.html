@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>测测你是抖音几级发烧友</title>
+    <style>
+      .question {
+       font-size: 20px;
+       margin-bottom: 2px;
+     }
+
+      .answer {
+       font-size: 18px;
+       padding: 10px;
+       margin: 10px;
+       border: 1px;
+     }
+
+      .correct {
+       background-color: lightgreen;
+     }
+
+      .incorrect {
+       background-color: red;
+     }
+
+      #result {
+       font-size: 32px;
+       margin-top: 20px;
+     }
+    </style>
+
+  </head>
+  <body style="background-color:lavender;">
+    <h1 style='border-style:solid;text-align:center;color:purple;'>测测你是抖音几级发烧友</h1>
+
+    <div id="question1" class="question">请问“耶斯莫拉”的创始人是？</div>
+    <input id="answer1" class="answer" type="text">
+
+    <div id="question2" class="question">请写出“太酷啦”的谐音版文字</div>
+    <input id="answer2" class="answer" type="text">
+
+    <div id="question3" class="question">请问”告诉老默”的下一句是什么？</div>
+    <input id="answer3" class="answer" type="text">
+
+    <div id="question4" class="question">请问“远方传来风笛”的意思是？</div>
+    <input id="answer4" class="answer" type="text">
+
+    <div id="question5" class="question">请问”你是我的神“出自哪位女明星之口？</div>
+    <input id="answer5" class="answer" type="text">
+
+  <button onclick="checkAnswers()">提交答案</button>
+
+  <div id="result"></div>
+
+  <script>
+    var questions = [
+      {
+        question: "请问“耶斯莫拉”的创始人是？",
+        answer: "郭老师"
+      },
+      {
+        question: "请写出“太酷啦”的谐音版文字",
+        answer: "泰裤辣"
+      },
+      {
+        question: "请问”告诉老默”的下一句是什么？",
+        answer: "我想吃鱼了"
+      },
+      {
+        question: "请问“远方传来风笛”的意思是？",
+        answer: "滚"
+      },
+      {
+        question: "请问”你是我的神“出自哪位女明星之口？",
+        answer: "海清"
+      }
+    ];
+
+    function checkAnswers() {
+      var correctAnswers = 0;
+      for (var i = 1; i <= 5; i++) {
+        var answer = document.getElementById("answer" + i).value.trim();
+        if (answer === questions[i - 1].answer) {
+          document.getElementById("answer" + i).className = "answer correct";
+          correctAnswers++;
+        }
+        else {
+          document.getElementById("answer" + i).className = "answer incorrect";
+        }
+      }
+
+      var resultDiv = document.getElementById("result");
+      if (correctAnswers === 5) {
+        resultDiv.innerHTML = "你是名副其实的抖音达人，在下佩服！╰(*°▽°*)╯";
+      }
+      else if (correctAnswers >= 3) {
+        resultDiv.innerHTML = "抖音玩家里的潜力股啊，太棒了(๑•̀ㅂ•́)و✧";
+      }
+      else if (correctAnswers >= 1) {
+        resultDiv.innerHTML = "看来你是抖音小白一枚呀♪(^∇^*)";
+      }
+      else {
+        resultDiv.innerHTML = "我猜你一定没有玩过抖音吧（づ￣3￣）づ";
+      }
+    }
+  </script>
+
+  </body>
+</html>
